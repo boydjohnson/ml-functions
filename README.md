@@ -11,6 +11,8 @@ These functions operate on `ndarray` ArrayBase data structures.
 - `softmax` along an axis
 - `exp`
 - `max` along an axis
+- `argmax` along an axis
+- `argsort` along an axis
 
 ## Usage
 
