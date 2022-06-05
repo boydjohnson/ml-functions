@@ -22,8 +22,11 @@ where
     S: Data<Elem = T>,
     D: Dimension + RemoveAxis,
 {
-    Zip::from(a.lanes(Axis(axis)))
-        .map_collect(|v| *v.iter().max_by_key(|&&s| OrderedFloat(s)).unwrap())
+    Zip::from(a.lanes(Axis(axis))).map_collect(|v| {
+        *v.iter()
+            .max_by_key(|&&s| OrderedFloat(s))
+            .expect("has at least one value")
+    })
 }
 
 /// Calculate a maximum along an axis and keep the same dimensions.
