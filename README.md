@@ -7,10 +7,10 @@ These functions operate on `ndarray` ArrayBase data structures.
 
 ## Operations
 
-`sigmoid`
-`softmax` along an axis
-`exp`
-`max` along an axis
+- `sigmoid`
+- `softmax` along an axis
+- `exp`
+- `max` along an axis
 
 ## Usage
 
