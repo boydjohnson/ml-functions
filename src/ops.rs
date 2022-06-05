@@ -8,6 +8,7 @@ pub mod sigmoid;
 pub mod softmax;
 
 pub use argmax::{argmaxf, argmaxf_keep_dims, Argmaxf, ArgmaxfKeepDims};
+pub use argsort::{argsortf, Argsortf};
 pub use exp::{exp, Exp};
 pub use max::{maxf, maxf_keep_dims, Maxf, MaxfKeepDims};
 pub use sigmoid::{sigmoid, Sigmoid};
