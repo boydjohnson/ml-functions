@@ -1,5 +1,6 @@
 //! Ops are mathematical operations on ndarray Arrays.
 
+pub mod argmax;
 pub mod exp;
 pub mod max;
 pub mod sigmoid;
