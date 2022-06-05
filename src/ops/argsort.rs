@@ -27,6 +27,23 @@ where
     output
 }
 
+/// argsort on floats
+pub trait Argsortf<D> {
+    /// argsort on floats
+    fn argsortf(&self, axis: usize) -> Array<usize, D>;
+}
+
+impl<T, S, D> Argsortf<D> for ArrayBase<S, D>
+where
+    T: Float,
+    S: Data<Elem = T>,
+    D: Dimension + RemoveAxis,
+{
+    fn argsortf(&self, axis: usize) -> Array<usize, D> {
+        argsortf(self, axis)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
