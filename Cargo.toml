@@ -2,10 +2,13 @@
 name = "ml-functions"
 version = "0.1.0"
 edition = "2021"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 ndarray = "0.15"
 num-traits = "0.2"
 ordered-float = "3.0"
+
+[dev-dependencies]
+approx = "0.5"
+ndarray = { version = "0.15", features = ["docs"] }
