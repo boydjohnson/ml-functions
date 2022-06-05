@@ -40,6 +40,6 @@ where
     D: Dimension,
 {
     fn sigmoid(&self) -> Array<T, D> {
-        sigmoid(&self)
+        sigmoid(self)
     }
 }
