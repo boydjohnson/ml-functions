@@ -35,6 +35,47 @@ where
     argmaxf(a, axis).insert_axis(Axis(axis))
 }
 
+/// Find the index of the maximum float value along an axis.
+pub trait Argmaxf<D>
+where
+    D: Dimension + RemoveAxis,
+{
+    /// Find the indices of the maxium (float) values along an axis.
+    fn argmaxf(&self, axis: usize) -> Array<usize, <D as Dimension>::Smaller>;
+}
+
+impl<T, S, D> Argmaxf<D> for ArrayBase<S, D>
+where
+    T: Float,
+    S: Data<Elem = T>,
+    D: Dimension + RemoveAxis,
+{
+    fn argmaxf(&self, axis: usize) -> Array<usize, <D as Dimension>::Smaller> {
+        argmaxf(self, axis)
+    }
+}
+
+/// Like argmaxf but keep the same dimensions
+pub trait ArgmaxfKeepDims<D>
+where
+    D: Dimension + RemoveAxis,
+{
+    /// Like argmaxf but keep the same dimensions
+    fn argmaxf_keep_dims(&self, axis: usize) -> Array<usize, D>;
+}
+
+impl<T, S, D, Smaller> ArgmaxfKeepDims<D> for ArrayBase<S, D>
+where
+    T: Float,
+    S: Data<Elem = T>,
+    D: Dimension<Smaller = Smaller> + RemoveAxis,
+    Smaller: Dimension<Larger = D>,
+{
+    fn argmaxf_keep_dims(&self, axis: usize) -> Array<usize, D> {
+        argmaxf_keep_dims(self, axis)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
