@@ -1,3 +1,16 @@
+//! functions for calculating a max along an axis
+//!
+//! ```rust
+//!     use ml_functions::ops::maxf;
+//!     use ml_functions::ndarray::array;
+//!     use approx::assert_abs_diff_eq;    
+//!
+//!     let a = array![[1.0, 2.0], [2.0, 3.0]];
+//!
+//!     assert_abs_diff_eq!(maxf(&a, 0), array![2.0, 3.0]);
+//!
+//! ```
+
 use ndarray::{Array, ArrayBase, Axis, Data, Dimension, RemoveAxis, Zip};
 use num_traits::Float;
 use ordered_float::OrderedFloat;

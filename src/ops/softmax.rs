@@ -32,6 +32,24 @@ where
     exp_shifted.div(divisor)
 }
 
+/// the softmax function.
+pub trait Softmax<T, D> {
+    /// the softmax function.
+    fn softmax(&self, axis: usize) -> Array<T, D>;
+}
+
+impl<T, S, D, Smaller> Softmax<T, D> for ArrayBase<S, D>
+where
+    T: Float,
+    S: Data<Elem = T>,
+    D: Dimension<Smaller = Smaller> + RemoveAxis,
+    Smaller: Dimension<Larger = D>,
+{
+    fn softmax(&self, axis: usize) -> Array<T, D> {
+        softmax(self, axis)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
