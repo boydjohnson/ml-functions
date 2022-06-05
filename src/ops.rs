@@ -8,4 +8,4 @@ pub mod softmax;
 pub use exp::{exp, Exp};
 pub use max::{maxf, maxf_keep_dims, Maxf, MaxfKeepDims};
 pub use sigmoid::{sigmoid, Sigmoid};
-pub use softmax::softmax;
+pub use softmax::{softmax, Softmax};
