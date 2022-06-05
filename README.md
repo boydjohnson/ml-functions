@@ -12,6 +12,7 @@ These functions operate on `ndarray` ArrayBase data structures.
 - `exp`
 - `max` along an axis
 - `argmax` along an axis
+- `argsort` along an axis
 
 ## Usage
 
