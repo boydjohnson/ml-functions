@@ -6,6 +6,7 @@ pub mod exp;
 pub mod max;
 pub mod sigmoid;
 pub mod softmax;
+pub mod sort;
 
 pub use argmax::{argmaxf, argmaxf_keep_dims, Argmaxf, ArgmaxfKeepDims};
 pub use argsort::{argsortf, Argsortf};
