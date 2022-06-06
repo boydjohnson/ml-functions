@@ -26,6 +26,23 @@ where
     output
 }
 
+/// Sort floats along an axis
+pub trait Sortf<T, D> {
+    /// sort floats along an axis
+    fn sortf(&self, axis: usize) -> Array<T, D>;
+}
+
+impl<T, S, D> Sortf<T, D> for ArrayBase<S, D>
+where
+    T: Float,
+    S: Data<Elem = T>,
+    D: Dimension,
+{
+    fn sortf(&self, axis: usize) -> Array<T, D> {
+        sortf(self, axis)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
